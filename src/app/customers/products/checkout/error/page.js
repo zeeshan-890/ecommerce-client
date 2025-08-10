@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { XCircle, AlertTriangle, RotateCcw, Home, ShoppingCart } from "lucide-react";
+import { XCircle, AlertTriangle, RotateCcw, Home, ShoppingCart, Link } from "lucide-react";
 import axiosInstance from "@/Store/AxiosInstance";
 
 const CheckoutError = () => {
@@ -70,22 +70,16 @@ const CheckoutError = () => {
                     ) : null}
 
                     <div className="space-y-3">
+
                         <button
-                            onClick={() => router.push("/customers/products/checkout")}
-                            className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                        >
-                            <RotateCcw className="w-5 h-5" />
-                            Try Checkout Again
-                        </button>
-                        <button
-                            onClick={() => router.push("/cart")}
+                            onClick={() => router.push("/customers/products/cart")}
                             className="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
                         >
                             <ShoppingCart className="w-5 h-5" />
                             Review Cart
                         </button>
                         <button
-                            onClick={() => router.push("/")}
+                            onClick={() => router.replace("/")}
                             className="w-full flex items-center justify-center gap-2 bg-gray-200 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors"
                         >
                             <Home className="w-5 h-5" />
@@ -101,7 +95,7 @@ const CheckoutError = () => {
                 </div>
 
                 <div className="mt-6 text-center text-xs text-gray-400">
-                    Need help? <a href="mailto:support@example.com" className="hover:underline">Contact Support</a>
+                    Need help? <Link href="mailto:support@example.com" className="hover:underline">Contact Support</Link>
                 </div>
             </div>
         </div>
