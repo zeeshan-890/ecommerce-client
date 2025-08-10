@@ -40,7 +40,7 @@ import Adminsidebar from '@/components/Adminsidebar';
 import { userauthstore } from '@/Store/UserAuthStore';
 import ProtectedRoute from '@/components/Protectedroute';
 
-const page = () => {
+const CustomerManagementPage    = () => {
     const { opensidebar, setOpenSidebar, getallcustomers, allcustomers } = userauthstore();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedSegment, setSelectedSegment] = useState('all');
@@ -674,4 +674,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default CustomerManagementPage;

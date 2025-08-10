@@ -7,13 +7,13 @@ import { ProductStore } from '@/Store/ProductStore';
 import ProtectedRoute from '@/components/Protectedroute';
 import { SlidersHorizontal, X } from 'lucide-react';
 
-const page = () => {
+const ProductPage = () => {
     const { getallproducts, products } = ProductStore();
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [filters, setFilters] = useState({
         categories: [],
         priceRange: 'all',
-        minPrice: '',
+         minPrice: '',
         maxPrice: '',
         brands: [],
         tags: []
@@ -190,4 +190,4 @@ const page = () => {
     )
 }
 
-export default page
+export default ProductPage;

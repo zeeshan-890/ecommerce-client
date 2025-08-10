@@ -41,7 +41,7 @@ import axios from 'axios';
 import axiosInstance from '@/Store/AxiosInstance';
 import ProtectedRoute from '@/components/Protectedroute';
 
-const page = () => {
+const AdminProductPage = () => {
 
     const { opensidebar, setOpenSidebar } = userauthstore();
     const { addproduct, getallproducts, products } = ProductStore();
@@ -1025,4 +1025,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default AdminProductPage;

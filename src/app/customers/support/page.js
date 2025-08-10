@@ -2,7 +2,7 @@
 import Header from '@/components/Header';
 import React, { useState } from 'react';
 
-const page = () => {
+const SupportPage = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -178,4 +178,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default SupportPage;
