@@ -6,11 +6,7 @@ module.exports = {
         "./components/**/*.{js,jsx,ts,tsx}",
     ],
 
-    rules: {
-        "react/no-unescaped-entities": "off",
-        "@next/next/no-img-element": "off",
-        "react-hooks/exhaustive-deps": "off"
-    },
+  
 
 
     theme: {
