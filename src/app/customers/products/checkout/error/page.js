@@ -1,20 +1,21 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { XCircle, AlertTriangle, RotateCcw, Home, ShoppingCart, Link } from "lucide-react";
-import axiosInstance from "@/Store/AxiosInstance";
+"use client";
 
-const CheckoutError = () => {
+import { Suspense } from "react";
+import React, { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation'; // Changed import
+import { CheckCircle, Package, CreditCard, Truck, Clock } from 'lucide-react';
+import axiosInstance from '@/Store/AxiosInstance';
+
+function CheckoutErrorContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const sessionId = searchParams.get("session_id");          // if returned
+    const sessionId = searchParams.get("session_id");
     const errorCode = searchParams.get("error_code");
     const errorMessage = searchParams.get("error_message") || searchParams.get("message");
     const [loading, setLoading] = useState(!!sessionId);
     const [serverInfo, setServerInfo] = useState(null);
     const [detailsOpen, setDetailsOpen] = useState(false);
 
-    // (Optional) ask backend if you store aborted sessions / to release reserved inventory
     useEffect(() => {
         const run = async () => {
             if (!sessionId) return;
@@ -100,6 +101,12 @@ const CheckoutError = () => {
             </div>
         </div>
     );
-};
+}
 
-export default CheckoutError;
+export default function CheckoutError() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <CheckoutErrorContent />
+        </Suspense>
+    );
+}

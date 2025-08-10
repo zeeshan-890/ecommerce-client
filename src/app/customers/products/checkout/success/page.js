@@ -4,7 +4,10 @@ import { useRouter, useSearchParams } from 'next/navigation'; // Changed import
 import { CheckCircle, Package, CreditCard, Truck, Clock } from 'lucide-react';
 import axiosInstance from '@/Store/AxiosInstance';
 
-const CheckoutSuccess = () => {
+
+import { Suspense } from "react";
+
+function CheckoutSuccessContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const session_id = searchParams.get('session_id');
@@ -21,21 +24,13 @@ const CheckoutSuccess = () => {
     const handleSuccessfulPayment = async () => {
         try {
             setLoading(true);
-
-
             const response = await axiosInstance.post('/api/stripe-success', { sessionId: session_id });
-
             console.log("Success response:", response.data);
             const result = response.data;
-
-
             setOrder(result.data.order);
-
-            // Clear cart if it exists
             if (typeof window !== 'undefined' && window.clearCart) {
                 window.clearCart();
             }
-
         } catch (err) {
             console.error('Success processing error:', err);
             setError(err.message);
@@ -316,6 +311,12 @@ const CheckoutSuccess = () => {
             </div>
         </div>
     );
-};
+}
 
-export default CheckoutSuccess;
+export default function CheckoutSuccess() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <CheckoutSuccessContent />
+        </Suspense>
+    );
+}
