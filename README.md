@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# Ecommerce Client
+
+This is the frontend client for an ecommerce website built with Next.js, React, and Tailwind CSS. It provides a modern shopping experience with features for customers and administrators.
+
+## Features
+
+- Product browsing, filtering, and search
+- Shopping cart and checkout flow
+- Stripe payment integration
+- Order management and history
+- Customer profile and support
+- Admin dashboard for analytics, product, order, and customer management
+- Responsive design with Tailwind CSS
+- Protected routes for authentication
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- Axios for API requests
+- Stripe for payments
+- Lucide React icons
+
+## Project Structure
+
+```
+client/
+├── public/                # Static assets
+├── src/
+│   ├── app/               # Next.js app directory
+│   │   ├── customers/     # Customer pages (orders, products, cart, checkout, profile, support)
+│   │   ├── admin/         # Admin pages (dashboard, analytics, products, orders, customers)
+│   │   ├── login/         # Login page
+│   │   ├── signup/        # Signup page
+│   │   └── ...
+│   ├── components/        # Reusable UI components
+│   ├── Store/             # State management and API utilities
+├── package.json           # Project dependencies and scripts
+├── next.config.mjs        # Next.js configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── eslint.config.js       # ESLint configuration
+└── README.md              # Project documentation
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+	```sh
+	npm install
+	```
+2. **Run the development server:**
+	```sh
+	npm run dev
+	```
+3. **Build for production:**
+	```sh
+	npm run build
+	```
+4. **Start the production server:**
+	```sh
+	npm start
+	```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Environment Variables
+
+Create a `.env.local` file for sensitive configuration, such as Stripe keys and API endpoints.
+
+```
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_key
+NEXT_PUBLIC_API_BASE_URL=https://your-api-url.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Linting & Formatting
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- ESLint is configured for Next.js and React best practices.
+- Custom rules are set in `eslint.config.js`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+- Ready for deployment on Vercel or any Node.js hosting platform.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pull requests and issues are welcome! Please follow the code style and add tests where appropriate.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
