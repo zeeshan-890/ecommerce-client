@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://ecommerce-zeeshan-135137aebf89.herokuapp.com/', // set your base URL here
+  baseURL: 'https://ecommerceserver-09a3048c55bb.herokuapp.com/', // set your base URL here
   withCredentials: true, // send cookies (optional)
 });
 
